@@ -249,7 +249,7 @@
              (setf (window-x window) (xlib:drawable-x (window-parent window))
                    (window-y window) (xlib:drawable-y (window-parent window)))))))
       (t
-       (when (eq *mouse-focus-policy* :click)
+       (unless (eq *mouse-focus-policy* :sloppy)
          (focus-window window))))))
 
 (defmethod group-button-press ((group float-group) x y where)
